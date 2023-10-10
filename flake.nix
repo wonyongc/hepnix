@@ -8,7 +8,7 @@
 
   outputs = { self, nixpkgs, utils, ... }@inputs:
 
-    inputs.utils.lib.eachSystem [ "x86_64-linux" "aarch64-darwin" ]
+    inputs.utils.lib.eachSystem [ "x86_64-linux" ]
 
     (system: let
 
@@ -22,7 +22,7 @@
            podio = prev.callPackage ./podio.nix {};
            edm4hep = prev.callPackage ./edm4hep.nix {};
            LCIO = prev.callPackage ./LCIO.nix {};
-           geant4 = prev.callPackage ./geant4.nix {};
+           mygeant4 = prev.callPackage ./geant4.nix {};
            dd4hep = prev.callPackage ./dd4hep.nix {};
            evtgen = prev.callPackage ./evtgen.nix {};
            gaudi = prev.callPackage ./gaudi.nix {};

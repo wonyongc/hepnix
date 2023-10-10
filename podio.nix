@@ -10,7 +10,7 @@ pkgs.stdenv.mkDerivation rec {
     src = pkgs.fetchgit {
       url = "https://github.com/AIDASoft/podio";
       rev = "cf3d239cbc4932e2b1d7ee42bcbef55ee869b3c1";
-      sha256 = "sha256-MlqJOoMSRuYeG+jl8DFgcNnpEyeRgDCK2JlN9pOqBWA=";
+      sha256 = "sha256-8yAqB2Ltjo6alChFXjHlXmpatPj/fJkM6Q0svK/Rh24=";
     };
 
     buildInputs = hep.core pkgs;

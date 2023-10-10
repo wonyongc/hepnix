@@ -10,7 +10,7 @@ pkgs.stdenv.mkDerivation rec {
     src = pkgs.fetchgit {
       url = "https://github.com/dpiparo/vdt";
       rev = "c57ca420d0d642b577313885bbaaedf4d63e01d5";
-      sha256 = "sha256-MlqJOoMSRuYeG+jl8DFgcNnpEyeRgDCK2JlN9pOqBWA=";
+      sha256 = "sha256-gVbBHqO9qvViIvf5vTk+DZvCV2TF+8Ls6hbiGbJDjGs=";
     };
 
     buildInputs = hep.core pkgs;

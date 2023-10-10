@@ -1,6 +1,24 @@
+let
+  pythonPackages = pkgs: with pkgs; [
+#    pandas
+    requests
+    numpy
+    matplotlib
+#    jupyter
+#    ipython
+#    h5py
+#    pymongo
+    pygments
+#    pyqt5
+    debugpy
+    jinja2
+    pyyaml
+    six
+  ];
+in
 {
   core = pkgs: with pkgs; [
-    boost175
+    (boost175.override { enablePython = true; enableNumpy = true; python = (python310Full.withPackages pythonPackages);})
     cmake
     coin3d
     curl
@@ -23,8 +41,28 @@
     motif
     openssl
     tbb
+#    (tbb.overrideAttrs (oldAttrs: rec {
+#            version = "2020.2";
+#
+#            installPhase = oldAttrs.installPhase + ''
+#            ${pkgs.cmake}/bin/cmake \
+#                -DTBB_ROOT="$out" \
+#                -DTBB_OS=Linux \
+#                -DSAVE_TO="$out"/lib/cmake/ \
+#                -P cmake/tbb_config_generator.cmake
+#
+#            ${pkgs.cmake}/bin/cmake \
+#                -DINSTALL_DIR="$out"/lib/cmake/TBB \
+#                -DSYSTEM_NAME=Linux \
+#                -DLIB_PATH="$out"/lib \
+#                -DINC_PATH="$out"/include \
+#                -DTBB_VERSION_FILE="$out"/include/tbb/tbb_stddef.h \
+#                -P cmake/tbb_config_installer.cmake
+#
+#
+#            '';
+#    }))
     pkg-config
-    python310Full
     qt5Full
     sqlite
     xercesc
@@ -43,33 +81,18 @@
     range-v3
 
     clhep
-    hepmc3
+    (hepmc3.overrideAttrs (oldAttrs: rec { buildInputs = oldAttrs.buildInputs ++ [ nlohmann_json ];}))
     fastjet
     lhapdf
     pythia
     root
     vc
+
+    (python310Full.withPackages pythonPackages)
   ];
 
   wrappers = pkgs: with pkgs; [
     qt5.wrapQtAppsHook
-  ];
-
-  overlaid = pkgs: with pkgs; [
-    podio
-    edm4hep
-    VecCore
-    VecGeom
-    vdt
-    SIO
-    LCIO
-    geant4
-    dd4hep
-    evtgen
-    gaudi
-    K4FWCore
-    k4SimGeant4
-    k4Gen
   ];
 
   overlays = [
@@ -82,9 +105,10 @@
       podio = prev.callPackage ./podio.nix {};
       edm4hep = prev.callPackage ./edm4hep.nix {};
       LCIO = prev.callPackage ./LCIO.nix {};
-      geant4 = prev.callPackage ./geant4.nix {};
+      mygeant4 = prev.callPackage ./geant4.nix {};
       dd4hep = prev.callPackage ./dd4hep.nix {};
       evtgen = prev.callPackage ./evtgen.nix {};
+      hepPDT = prev.callPackage ./hepPDT.nix {};
       gaudi = prev.callPackage ./gaudi.nix {};
       k4FWCore = prev.callPackage ./k4FWCore.nix {};
       k4SimGeant4 = prev.callPackage ./k4SimGeant4.nix {};

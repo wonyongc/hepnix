@@ -10,7 +10,7 @@ pkgs.stdenv.mkDerivation rec {
     src = pkgs.fetchgit {
       url = "https://gitlab.cern.ch/VecGeom/VecGeom";
       rev = "5a275d77ef80b12240d59fd276231ad50d5df577";
-      sha256 = "sha256-MlqJOoMSRuYeG+jl8DFgcNnpEyeRgDCK2JlN9pOqBWA=";
+      sha256 = "sha256-/RYv8U9OlJ7BuDsFAKB/UkEelkUCGGLSfZKIF6KXrM8=";
     };
 
     buildInputs = hep.core pkgs;

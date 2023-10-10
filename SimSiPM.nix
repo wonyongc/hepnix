@@ -13,7 +13,7 @@ pkgs.stdenv.mkDerivation rec {
       sha256 = "sha256-MlqJOoMSRuYeG+jl8DFgcNnpEyeRgDCK2JlN9pOqBWA=";
     };
 
-    buildInputs = hep.core pkgs ++ [ podio edm4hep VecCore VecGeom vdt SIO LCIO geant4 dd4hep evtgen gaudi K4FWCore k4SimGeant4 k4Gen ];
+    buildInputs = hep.core pkgs ++ (with pkgs; [ AIDA podio edm4hep VecCore VecGeom vdt SIO LCIO mygeant4 dd4hep evtgen hepPDT gaudi k4FWCore k4SimGeant4 k4Gen ]);
     nativeBuildInputs = hep.wrappers pkgs;
 
 

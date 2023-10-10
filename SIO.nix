@@ -10,7 +10,7 @@ pkgs.stdenv.mkDerivation rec {
     src = pkgs.fetchgit {
       url = "https://github.com/iLCSoft/SIO";
       rev = "89ad15cecbcc366880ec8e90e83658a260c3160d";
-      sha256 = "sha256-MlqJOoMSRuYeG+jl8DFgcNnpEyeRgDCK2JlN9pOqBWA=";
+      sha256 = "sha256-vH33o7oL8A3Z7H61GzV2uLMg8gwxRtWJcvglqOTsmr0=";
     };
 
     buildInputs = hep.core pkgs;
