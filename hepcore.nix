@@ -81,7 +81,7 @@ in
     range-v3
 
     clhep
-    (hepmc3.overrideAttrs (oldAttrs: rec { buildInputs = oldAttrs.buildInputs ++ [ nlohmann_json ];}))
+    # (hepmc3.overrideAttrs (oldAttrs: rec { buildInputs = oldAttrs.buildInputs ++ [ nlohmann_json ];}))
     fastjet
     lhapdf
     pythia
@@ -108,6 +108,7 @@ in
       mygeant4 = prev.callPackage ./geant4.nix {};
       dd4hep = prev.callPackage ./dd4hep.nix {};
       evtgen = prev.callPackage ./evtgen.nix {};
+      hepmc3 = prev.callPackage ./hepmc3.nix {};
       hepPDT = prev.callPackage ./hepPDT.nix {};
       gaudi = prev.callPackage ./gaudi.nix {};
       k4FWCore = prev.callPackage ./k4FWCore.nix {};

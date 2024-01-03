@@ -20,4 +20,11 @@ pkgs.stdenv.mkDerivation rec {
         "-DCMAKE_CXX_STANDARD=17"
     ];
 
+    prePhases = [ "sourcePhase" ];
+
+    sourcePhase = ''
+    source ${pkgs.mygeant4}/bin/geant4.sh
+    source ${pkgs.dd4hep}/bin/thisdd4hep.sh
+
+    '';
 }

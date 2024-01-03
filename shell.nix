@@ -3,61 +3,79 @@
 (pkgs.buildFHSUserEnv {
   name = "simple-x11-env";
   targetPkgs = pkgs: (with pkgs;
-    [ udev
-      libstdcxx5
-      stdenv
-      bash
-      openssl
-      util-linux
-      libyaml
-      protobuf
-      gtk2
-      unixtools.ifconfig
-      unixtools.nettools
-      unixtools.fdisk
-      unixtools
-      inetutils
-      hwinfo
-      toybox
-      busybox
-      pciutils
-      lsscsi
-      usbutils
-      util-linux
+    [ 
+alsa-lib
+bash
+bind
+boost
+busybox
+coreutils
+coreutils-full
+cups
+curl
+dmidecode
+dnsutils
+dpkg
+elfutils
+firefox
+fontconfig
+freetype
+gcc
+git
+glib
+glib-networking
+gomp
+graphviz
+gtk2
+hwinfo
+inetutils
+iproute2
+libdrm
+libnsl
+libstdcxx5
+libuuid
+libyaml
+libsoup
+libxcrypt
+libxkbcommon
+lsscsi
+mesa
+motif
+ncurses5
+nettools
+inetutils
+nss
+ocl-icd
+opencl-clhpp
+opencl-headers
+openssl
+pciutils
+pkg-config
+protobuf
+qt48Full
+rpcbind
+shared-mime-info
+stdenv
+toybox
+udev
+unixtools
+unixtools.fdisk
+unixtools.ifconfig
+unixtools.nettools
+usbutils
+util-linux
+util-linux
+xdg-utils
+xvfb-run
+zlib
 
-      coreutils-full
-      dmidecode
-      boost
-      ocl-icd
-      opencl-headers
-      opencl-clhpp
-      libdrm
-      pkg-config
-      dpkg
-      git
-      coreutils
-      ncurses5
-      motif
-      qt48Full
-      rpcbind
-      zlib
-      glib
-      freetype
-      fontconfig
-      libuuid
-      nettools
-      iproute2
-      curl
-      glib-networking
-      libsoup
-      firefox
-      graphviz
-      gcc
-      unzip
     ]) ++ (with pkgs.xorg;
     [ libX11
+      libXcomposite
+      libXdamage
       libXcursor
       libXrandr
+      libXtst
       libSM
       libICE
       libXi
@@ -66,6 +84,10 @@
       libXrender
       libXtst
       libXext
+      xcbutilimage
+      xcbutilkeysyms
+      xcbutilrenderutil
+      xcbutilwm
     ]);
   multiPkgs = null;
 
