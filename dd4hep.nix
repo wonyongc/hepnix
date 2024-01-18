@@ -16,6 +16,7 @@ pkgs.stdenv.mkDerivation rec {
     buildInputs = hep.core pkgs ++ (with pkgs; [
       podio
       edm4hep
+      hepmc3
       VecCore
       VecGeom
       vdt

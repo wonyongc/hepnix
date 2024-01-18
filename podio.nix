@@ -5,12 +5,12 @@ in
 pkgs.stdenv.mkDerivation rec {
 
     pname = "podio";
-    version = "v00-13";
+    version = "v00-14-01";
 
     src = pkgs.fetchgit {
       url = "https://github.com/AIDASoft/podio";
-      rev = "cf3d239cbc4932e2b1d7ee42bcbef55ee869b3c1";
-      sha256 = "sha256-8yAqB2Ltjo6alChFXjHlXmpatPj/fJkM6Q0svK/Rh24=";
+      rev = "694d5b4db084e515f1f2b2b08146849cc53b5f9a";
+      sha256 = "sha256-fImAbdpBAscr/12p4W7uI2xL3uNBQDBR7U1ilkD6rjQ=";
     };
 
     buildInputs = hep.core pkgs;

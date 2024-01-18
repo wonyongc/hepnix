@@ -5,12 +5,12 @@ in
 pkgs.stdenv.mkDerivation rec {
 
     pname = "edm4hep";
-    version = "v00-03";
+    version = "v00-04-01";
 
     src = pkgs.fetchgit {
       url = "https://github.com/key4hep/EDM4hep";
-      rev = "e17d47ab9f17f3a56fb90550d307275cacd93153";
-      sha256 = "sha256-0yB2zO49i7zgx9nht3JH7u/URBQ0ei1MP4fbtNJ1LyI=";
+      rev = "18a8ffe30569ee66a5d74c5af2ffaa11d55886d3";
+      sha256 = "sha256-ZEGt7epqN7OjjWWlrxukKJah2oxucIVvtAAgcSxwePg=";
     };
 
     buildInputs = hep.core pkgs ++ (with pkgs; [ podio SIO ]);

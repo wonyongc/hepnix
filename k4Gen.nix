@@ -5,19 +5,22 @@ in
 pkgs.stdenv.mkDerivation rec {
 
     pname = "k4Gen";
-    version = "v0.1pre04";
+    version = "v0.1pre07";
 
     src = pkgs.fetchgit {
       url = "https://github.com/HEP-FCC/k4Gen";
-      rev = "b7c735e401298a8c72915819dc0404a83f46a0fe";
-      sha256 = "sha256-Mjudeb942c9LBiZBX+lCKvk5JKaVUctVKOu2Aq49JXk=";
+      rev = "e2eef998d27d09cee2ec670fc5756b1c9d1f4968";
+      sha256 = "sha256-4hDSqmCqM0IOnmxEla2SY6ggw6pWEiJhXSVy2PWnyqI=";
     };
 
-    buildInputs = hep.core pkgs ++ (with pkgs; [ AIDA podio edm4hep VecCore VecGeom vdt SIO LCIO mygeant4 dd4hep evtgen hepPDT gaudi k4FWCore k4SimGeant4 ]);
+    buildInputs = hep.core pkgs ++ (with pkgs; [ AIDA podio edm4hep VecCore VecGeom vdt SIO LCIO mygeant4 dd4hep evtgen hepmc3 hepPDT gaudi k4FWCore k4SimGeant4 ]);
     nativeBuildInputs = hep.wrappers pkgs;
 
     cmakeFlags = [
         "-DCMAKE_CXX_STANDARD=17"
+        "-DHEPMC_INCLUDE_DIR=${pkgs.hepmc3}/include/HepMC3"
+        "-DHEPMC_HepMC_LIBRARY=${pkgs.hepmc3}/lib/libHepMC3.so"
+
     ];
 
     prePhases = [ "sourcePhase" ];
